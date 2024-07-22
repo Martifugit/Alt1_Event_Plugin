@@ -1,0 +1,17 @@
+{
+  "appname": "Warshub Discord Event Alt1 Plugin",
+  "author": "Ibux",
+  "description": "A plugin that will serve a RuneScape 3 event application.",
+  "version": "0.0.1",
+  "appUrl": "./index.html",
+  "configUrl": "./public/appconfig.json",
+  "defaultWidth": 250,
+  "defaultHeight": 280,
+  "minWidth": 180,
+  "minHeight": 225,
+  "maxWidth": 250,
+  "maxHeight": 290,
+  "requestHandlers": [],
+  "activators": [],
+  "permissions": "pixel, gamestate, overlay"
+}

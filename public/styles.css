@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  background-image: url('/assets/images/rs3-ui-bg.png');
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-items: center;
+  height: 100vh;
+}
+
+#status {
+  z-index: 9999;
+  font-size: 0.75rem;
+  color: rgb(250, 66, 66);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.heading-bg {
+  text-align: center;
+  padding-left: 10px;
+  color: goldenrod;
+  background-color: rgba(255, 255, 255, 0.03);
+  margin-bottom: 0;
+  padding: 8px 0 8px 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.144);
+}
+
+#top-nav {
+  display: flex;
+  justify-content: left;
+  margin: 5px 0 0 0;
+}
+
+.contenttab,
+.contenttableft {
+  font-size: 0.75rem;
+  float: right;
+  width: 90px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #919191;
+  cursor: pointer;
+  background: url('/assets/images/tabback.png') 0 0 / 100% 100%;
+  position: relative;
+  margin-left: -14px;
+  z-index: 11;
+  margin-top: -8px;
+  user-select: none;
+}
+
+.contenttab.lefttab {
+  float: left;
+  margin-left: 0px;
+  margin-right: -14px;
+}
+
+.contenttab:not(.active) {
+  z-index: 10;
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+  margin-top: -5px;
+  height: 18px;
+}
+
+.tooltip {
+  min-width: 100px;
+  padding: 2px 4px 2px 4px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: silver;
+  background-color: rgba(0, 0, 0, 0.425);
+  border: 1px solid white;
+}
+
+#content {
+  position: relative;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 20px 0;
+  margin: 0 5px 0 5px;
+  border: 3px solid white;
+  border-image: url('assets/images/rs3-ui-bg.png') stretch;
+  background-repeat: repeat;
+  overflow: hidden;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.849);
+  text-align: center;
+}
+
+.pair-label {
+  font-size: 0.875rem;
+  margin-top: -25px;
+  color: rgb(175, 175, 175);
+}
+
+.pairing-field {
+  padding: 3px 7px 3px 7px;
+  color: rgb(0, 0, 0);
+  background-color: goldenrod;
+}
+
+.pairing-field::placeholder {
+  font-size: 0.75rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#pair-button {
+  font-size: 0.75rem;
+  padding: 3px 7px 3px 7px;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  background-color: goldenrod;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#pair-button:hover {
+  background-color: rgb(185, 140, 27);
+}
+
+.tab-content {
+  display: none;
+  width: auto;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Quick Equip - Temp Display: None; */
+.add {
+  z-index: 2;
+  cursor: pointer;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  font-size: 0.675rem;
+  color: rgb(133, 133, 133);
+  background-color: black;
+  padding: 3px 10px 3px 10px;
+}
+
+.panel {
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 35px 35px 35px;
+  grid-template-rows: repeat(5, 35px);
+  grid-template-areas:
+    'aura head pocket'
+    'cape neck ammo'
+    'weapon body shield'
+    'empty legs legs'
+    'gloves boots ring';
+  gap: 2px;
+}
+
+#weapon-slot {
+  margin-left: -20px; /* Adjust as needed */
+}
+
+#shield-slot {
+  margin-left: 20px; /* Adjust as needed */
+}
+
+.slot {
+  width: 35px;
+  height: 35px;
+  background-color: rgba(0, 48, 54, 0.15);
+  border-top: 1px solid #55555534;
+  border-left: 1px solid #55555534;
+  border-right: 1px solid #55555534;
+  border-bottom: 1.5px solid #55555562;
+  border-radius: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.048),
+    inset 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+#head-slot {
+  grid-area: head;
+}
+#cape-slot {
+  grid-area: cape;
+}
+#neck-slot {
+  grid-area: neck;
+}
+#ammo-slot {
+  grid-area: ammo;
+}
+#weapon-slot {
+  grid-area: weapon;
+}
+#body-slot {
+  grid-area: body;
+}
+#shield-slot {
+  grid-area: shield;
+}
+#empty-slot {
+  grid-area: empty;
+  display: none;
+}
+#legs-slot {
+  grid-area: legs;
+}
+#gloves-slot {
+  grid-area: gloves;
+}
+#boots-slot {
+  grid-area: boots;
+}
+#ring-slot {
+  grid-area: ring;
+}
+
+#bosses-tab {
+  margin-top: 40px;
+}
+
+.boss-details {
+  font-size: 0.875rem;
+  color: rgb(148, 148, 148);
+  text-align: center;
+}
+
+.boss-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#current-boss {
+  margin-top: 50px;
+  margin-bottom: -10px;
+}
+
+#boss-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  grid-template-rows: repeat(2, 40px);
+  grid-auto-rows: 40px;
+}
+
+#boss-panel .slot {
+  width: 40px;
+  height: 40px;
+}
+
+#special-boss {
+  background-color: rgba(218, 165, 32, 0.123);
+}
+
+.equipment-icon {
+  aspect-ratio: 1;
+  width: 1.75rem;
+  object-fit: contain;
+  opacity: 0.5;
+}
+
+.boss-icon {
+  aspect-ratio: 1;
+  width: 2rem;
+  object-fit: contain;
+  opacity: 1;
+}
+
+/* Responsive styles for heights 220px and smaller */
+@media (max-height: 239px) {
+  .panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #weapon-slot {
+    margin-left: 0px;
+  }
+
+  #shield-slot {
+    margin-left: 0px;
+  }
+}
